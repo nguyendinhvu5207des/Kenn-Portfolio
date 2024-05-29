@@ -2,15 +2,6 @@
   #style.css
 \*-----------------------------------*/
 
-
-/**
- * copyright 2022 @codewithsadee
- */
-
-
-
-
-
 /*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
@@ -1879,4 +1870,75 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+}
+
+footer {
+  background-color: #333; /* Màu nền tối, dễ đọc */
+  padding: 30px 0; /* Khoảng đệm trên dưới */
+  text-align: center; /* Căn giữa văn bản */
+  font-family: sans-serif; /* Font chữ hiện đại */
+}
+
+footer p {
+  color: #fff; /* Màu chữ trắng nổi bật */
+  margin: 10px 0; /* Khoảng cách giữa các đoạn văn */
+  font-size: 14px; /* Kích thước chữ vừa phải */
+}
+
+footer a { /* Kiểu liên kết trong footer */
+  color: #007bff; /* Màu xanh dương chuẩn cho liên kết */
+  text-decoration: none; /* Bỏ gạch chân mặc định */
+}
+
+footer a:hover { /* Hiệu ứng khi rê chuột qua liên kết */
+  text-decoration: underline; /* Thêm gạch chân */
+}
+
+footer {
+  /* ... các thuộc tính khác ... */
+  position: relative; /* Để định vị pseudo-element */
+  overflow: hidden; /* Giấu phần thừa của hiệu ứng phát sáng */
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; /* Bắt đầu từ bên ngoài footer */
+  width: 200%; /* Rộng gấp đôi footer */
+  height: 5px; /* Độ dày của đường line */
+  background: linear-gradient(to right, rgba(0, 123, 255, 0), #fbff0b, rgba(0, 123, 255, 0)); /* Màu chuyển đổi từ trong suốt sang xanh dương rồi lại trong suốt */
+  animation: glowing 2s linear infinite; /* Hiệu ứng phát sáng lặp lại */
+}
+
+@keyframes glowing {
+  0% { left: -100%; }
+  50% { left: 0; }
+  100% { left: 100%; }
+}
+
+
+/* Responsive design (điều chỉnh cho màn hình nhỏ) */
+@media (max-width: 768px) {
+  footer p {
+      font-size: 12px; /* Giảm kích thước chữ */
+  }
+}
+
+body::before {
+  content: '';
+  position: fixed; /* Cố định vào viền trên của màn hình */
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 4px; /* Độ dày của đường viền */
+  background: linear-gradient(to right, rgba(0, 123, 255, 0), #eeff05, rgba(0, 123, 255, 0));
+  animation: glowing 2s linear infinite;
+  z-index: 1000; /* Đảm bảo đường viền nằm trên tất cả các phần tử khác */
+}
+
+@keyframes glowing {
+  0% { left: -100%; }
+  50% { left: 0; }
+  100% { left: 100%; }
 }
